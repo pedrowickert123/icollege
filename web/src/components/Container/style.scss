@@ -1,0 +1,9 @@
+.container-component {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 24px 0;
+
+  &.-noPadding {
+    padding: 0;
+  }
+}

@@ -1,0 +1,17 @@
+.classes-filter-component {
+  display: flex;
+  padding: 24px;
+  background-color: #fff;
+
+  > .input {
+    width: 100%;
+
+    & + .input {
+      margin-left: 16px;
+    }
+  }
+
+  > .button {
+    margin-left: 16px;
+  }
+}

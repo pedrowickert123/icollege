@@ -1,0 +1,15 @@
+.teachers-filter-component {
+  display: flex;
+  padding: 24px;
+  background-color: #fff;
+
+  > .input {
+    & + .input {
+      margin-left: 16px;
+    }
+  }
+
+  > .button {
+    margin-left: 16px;
+  }
+}
