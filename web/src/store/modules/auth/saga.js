@@ -1,4 +1,5 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects';
+import { notification } from 'antd';
 import history from '../../../services/history';
 import { api } from '../../../services';
 import { signInSuccess, signFailure } from './actions';
@@ -19,14 +20,26 @@ function* signIn({ payload }) {
 
     yield put(signInSuccess(token, user));
 
-    history.push('/students');
+    window.location.href = '/students';
   } catch (err) {
+    if (err.response) {
+      notification.open({
+        message: 'Opsss!',
+        description: err.response.data.message,
+      });
+    } else {
+      notification.open({
+        message: 'Opsss!',
+        description: 'Houve um erro. Por favor, verifique!',
+      });
+    }
+
     yield put(signFailure());
   }
 }
 
 function setToken({ payload }) {
-  if (!payload) return;
+  if (!payload || !payload.auth.token) return;
 
   const { token } = payload.auth.token;
 

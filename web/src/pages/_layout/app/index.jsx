@@ -1,4 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import { ROUTES } from '../../../res';
@@ -74,3 +76,7 @@ export function AppLayout({ children }) {
     </Layout>
   );
 }
+
+AppLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+};
